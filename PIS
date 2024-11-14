@@ -1,0 +1,140 @@
+/*Develop an object oriented program in C++ /Python to create a database of the personnel information system containing the following information: Name, Date of Birth, Blood group, Height, Weight, Insurance Policy number, Contact address, telephone number, driving licence no. etc Construct the database with suitable member functions for initializing and destroying the data viz constructor, default constructor, copy constructor, destructor, static member functions , friend class, this pointer, inline code and dynamic memory allocation operators-new and delete.*/
+/* POLICY NO. PERSONAl info system*/
+#include<iostream>
+#include<cstring>
+using namespace std;
+int n,i;
+class info{
+static int cnt;
+int pn,cn,wt,ht,dob;
+char *name,*add,*dli,bg[3];
+public:
+info()
+{
+name=new char;
+add=new char;
+dli=new char;
+strcpy(name,"aa");
+strcpy(add,"kopargaon");
+strcpy(dli,"as34");
+wt=30;
+ht=150;
+}
+~info()
+{
+delete dli;
+delete dob;
+cout<<"constuctor is called";
+}
+void accept();
+void search();
+void Delete();
+void info::display()
+{
+cout<<"\n"<<name<<"\t"<<add<<"\t"<<pn<<"\t"<<wt<<"\t"<<ht<<"\t"<<dob<<"\t"<<dli<<"\t"<<bg;
+}
+}s[10];
+
+
+
+void info::accept()
+{
+cout<<"enter:";
+cin>>n;
+for(i=0;i<n;i++)
+{
+cin>>"\n">>"\t">>name>>"\t">>add>>pn>>"\t">>wt>>"\t">>ht>>"\t">>dob>>"\t">>dli>>"\t">>bg;
+}
+}
+
+void info::search()
+{
+int f=0,p;
+cout<<"enter policy no. u want to search:";
+cin>>p;
+for(i=0;i<n;i++)
+{
+if(p==s[i].pn)
+{
+f=1;
+break;
+}
+}
+if(f==0){
+cout<<"record is not present";
+}
+}
+
+void info()::update()
+{
+int f=0,p;
+cout<<"enter policy no.u want to update:";
+cin>>p;
+for(i=0;i<n;i++)
+{
+if(p==s[i])
+{
+f==1;
+s[i].accept();
+break;
+}
+}
+if(f==0)
+{
+cout<<"not present";
+}
+}
+
+
+void info()::Delete()
+{
+int f=0,p;
+cout<<"enter policy no.u want to update:";
+cin>>p;
+for(i=0;i<n;i++)
+{
+if(p=s[i].pn)
+{
+s[i]=s[i+1];
+break;
+}
+}
+if(f==0)
+{
+cout<<"not present";
+}
+}
+
+
+int main()
+{
+int ch;
+do{
+cout<<"\n"<<"1.accept<<"\t"<<"\t"<<2.display <<"\t"<<"\t"<<3.search<<"\t"<<4.update<<"\t"<<5.Delete";
+cout<<"enter ur choice:";
+cin>>ch;
+switch(ch)
+{
+case 1:
+s[i].accept();
+break;
+
+case 2:
+s[i].display();
+break;
+
+case 3:
+s[i].search();
+break;
+
+case 4:
+s[i].update();
+break;
+
+case 5:
+s[i].Delete();
+break;
+}
+}while(ch==0);
+return 0;
+}
