@@ -1,0 +1,99 @@
+/*oop4:student information system(inheritance) */
+#include<iostream>
+using namespace std;
+class student{
+public:
+int  rollno;
+string prn,name;
+public:
+void accept();
+void display();
+};
+
+class test: virtual public student
+{
+public:
+int t1[5],t2[5];
+string cn[5];
+
+public: 
+void acct();
+void dist();
+};
+class sports:virtual public student{
+public:
+string sb,gr;
+void accs();
+void dis();
+};
+
+class result: public test,public sports
+{
+public:
+void disall(){
+   void  display();
+   void dist();
+   void dis();
+   }
+};
+
+
+void student::accept()
+{
+
+cout<<"\nEnter the roll no, prn number,name ";
+cin>>rollno>>prn>>name;
+}
+
+void student::display()
+{
+cout<<"\n"<<rollno<<"\t"<<prn<<"\t"<<name<<"\n";
+}
+
+void test::acct()
+{
+int i;
+for(i=0;i<5;i++)
+{
+
+cout<<"Enter the course name:";
+cin>>cn[i];
+cout<<"\nEnter the marks of cia:";
+cin>>t1[i]>>t2[i];
+}
+
+}
+
+void test::dist()
+{
+ cout<<"CIA marks of dsps,oop,coa,maths,spm are:";
+ for(int i=0;i<2;i++)
+ 
+ {
+cout<<t1[i]<<"\t"<<t2[i]<<"\n";
+}
+
+}
+
+void sports::accs()
+{
+ cout<<"\n enter the name of sports and grade of it:";
+ cin>>sb>>gr;
+ }
+ 
+ void sports::dis(){
+ cout<<sb<<gr;
+ }
+
+int main()
+ {
+ result r;
+ r.accept();
+ //r.display();
+ r.acct();
+ //r.dist();
+ r.accs();
+ //r.dis();
+ r.disall();
+ return 0;
+ }
