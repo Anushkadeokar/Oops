@@ -1,5 +1,6 @@
-/*Define a class to represent a bank account which includes the following members as: a.Nameofthedepositor b.AccountNumber c.Withdrawalamount d.BalanceamountintheaccountMemberFunctions: e.Toassigninitialvalues
-  f.Todepositanamount  g.Towithdrawanamountaftercheckingthebalance h.Todisplaynameandbalance. ImplementtheprogrambyusingfeaturesofOOPinC++ */
+/*Define a class to represent a bank account which includes the following members as: a.Name of the depositor b.Account Number c.Withdrawal amount d.Balance amount 
+ in the account MemberFunctions: e.Toassigninitialvalues
+  f.To deposit an amount  g.To withdraw  an amount after checking the balance h.To display name and balance. Implement the program by using features of OOP in C++ */
 #include<iostream>
 using namespace std;
 int n,i;
