@@ -1,99 +1,95 @@
 /*oop4:student information system(inheritance) */
-#include<iostream>
+#include <iostream>
+#include <string> 
 using namespace std;
-class student{
+
+class student {
+    int roll_no;
+    string prn_no, name;
 public:
-int  rollno;
-string prn,name;
-public:
-void accept();
-void display();
+    void accept();
+    void display();
 };
 
-class test: virtual public student
-{
+class test : virtual public student {
+    string s1[5];
+    int c1[5], e1[5];
 public:
-int t1[5],t2[5];
-string cn[5];
-
-public: 
-void acct();
-void dist();
-};
-class sports:virtual public student{
-public:
-string sb,gr;
-void accs();
-void dis();
+    void accept_t();
+    void display_t();
 };
 
-class result: public test,public sports
-{
+class sport : virtual public student {
+    string name_sport;
+    char G;
 public:
-void disall(){
-   void  display();
-   void dist();
-   void dis();
-   }
+    void accept_s();
+    void display_s();
 };
 
+class result : public test, public sport {
+public:
+    void displayAll() {
+        display();
+        display_t();
+        display_s();
+    }
+} R;
 
-void student::accept()
-{
-
-cout<<"\nEnter the roll no, prn number,name ";
-cin>>rollno>>prn>>name;
+void student::accept() {
+    cout << "Enter roll no, PRN no, and name:" << endl;
+    cin >> roll_no >> prn_no >> name;
 }
 
-void student::display()
-{
-cout<<"\n"<<rollno<<"\t"<<prn<<"\t"<<name<<"\n";
+void student::display() {
+    cout << "\n" << "Roll No" << "\t" << "PRN No" << "\t" << "Name" << endl;
+    cout << roll_no << "\t" << prn_no << "\t" << name << endl;
 }
 
-void test::acct()
-{
-int i;
-for(i=0;i<5;i++)
-{
-
-cout<<"Enter the course name:";
-cin>>cn[i];
-cout<<"\nEnter the marks of cia:";
-cin>>t1[i]>>t2[i];
+void test::accept_t() {
+    cout << "Enter the Subject Details:" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "Enter subject name, CIA marks, and end sem marks:" << endl;
+        cin >> s1[i] >> c1[i] >> e1[i];
+    }
 }
 
+void test::display_t() {
+    cout << "\n" << "Subject Name" << "\t" << "CIA" << "\t" << "ESE" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << s1[i] << "\t" << c1[i] << "\t" << e1[i] << endl;
+    }
 }
 
-void test::dist()
-{
- cout<<"CIA marks of dsps,oop,coa,maths,spm are:";
- for(int i=0;i<2;i++)
- 
- {
-cout<<t1[i]<<"\t"<<t2[i]<<"\n";
+void sport::accept_s() {
+    cout << "Enter sport name and grade:" << endl;
+    cin >> name_sport >> G;
 }
 
+void sport::display_s() {
+    cout << "\n" << "Sport Name" << "\t" << "Grade" << endl;
+    cout << name_sport << "\t" << G << endl;
 }
 
-void sports::accs()
-{
- cout<<"\n enter the name of sports and grade of it:";
- cin>>sb>>gr;
- }
- 
- void sports::dis(){
- cout<<sb<<gr;
- }
-
-int main()
- {
- result r;
- r.accept();
- //r.display();
- r.acct();
- //r.dist();
- r.accs();
- //r.dis();
- r.disall();
- return 0;
- }
+int main() {
+    int ch, choice;
+    do {
+        cout << "\n1. Accept\n2. Display";
+        cout << "\nEnter your choice: ";
+        cin >> choice;
+        switch (choice) {
+            case 1:
+                R.accept();
+                R.accept_t();
+                R.accept_s();
+                break;
+            case 2:
+                R.displayAll();
+                break;
+            
+        }
+        cout << "\nDo you want to continue (0/1)?:";
+        cin >> ch;
+    } while (ch == 1);
+    return 0;
+}
